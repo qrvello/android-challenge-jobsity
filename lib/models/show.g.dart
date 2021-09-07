@@ -36,7 +36,9 @@ _$_Show _$_$_ShowFromJson(Map<String, dynamic> json) {
     image: json['image'] == null
         ? null
         : Image.fromJson(json['image'] as Map<String, dynamic>),
-    summary: json['summary'] as String?,
+
+    /// Remove html tags
+    summary: parse(json['summary']).body?.text as String?,
     updated: json['updated'] as int?,
     links: json['_links'] == null
         ? null
