@@ -11,11 +11,13 @@ class ShowCubit extends Cubit<ShowState> {
 
   final IShowsRepository _showsRepository;
 
-  Future<void> init() async {
+  Future<void> get({int page = 0}) async {
     try {
-      emit(const ShowState.loading());
+      if (page == 0) {
+        emit(const ShowState.loading());
+      }
 
-      final shows = await _showsRepository.getShows();
+      final shows = await _showsRepository.getShows(page);
 
       emit(ShowState.loaded(shows));
     } catch (e) {

@@ -10,8 +10,8 @@ class ShowsRepository extends IShowsRepository {
   const ShowsRepository(this._dio);
 
   @override
-  Future<List<Show>> getShows() async {
-    final response = await _dio.get('/shows');
+  Future<List<Show>> getShows(int page) async {
+    final response = await _dio.get('/shows?page=$page');
     final List<Show> shows = [];
 
     response.data.forEach((show) {
