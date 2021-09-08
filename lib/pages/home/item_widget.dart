@@ -10,10 +10,12 @@ class ItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(show.name ?? ''),
-      trailing: FadeInImage.memoryNetwork(
-        placeholder: kTransparentImage,
-        image: show.image?.medium ?? '',
-      ),
+      trailing: show.image?.medium != null
+          ? FadeInImage.memoryNetwork(
+              placeholder: kTransparentImage,
+              image: show.image!.medium!,
+            )
+          : null,
       onTap: () => Navigator.pushNamed(
         context,
         '/show_details',

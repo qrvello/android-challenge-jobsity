@@ -1,12 +1,14 @@
 import 'package:dio/dio.dart';
-import 'package:tv_series/helpers/logging.dart';
+import 'package:tv_series/services/dio/logging.dart';
 
 class DioClient {
+  DioClient();
+
   final Dio _dio = Dio(
     BaseOptions(
       baseUrl: 'https://api.tvmaze.com',
-      connectTimeout: 5000,
-      receiveTimeout: 3000,
+      connectTimeout: 1000,
+      receiveTimeout: 1000,
     ),
   )..interceptors.add(Logging());
 
