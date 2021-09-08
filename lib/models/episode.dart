@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:html/parser.dart';
 
 import 'image.dart';
 import 'links.dart';

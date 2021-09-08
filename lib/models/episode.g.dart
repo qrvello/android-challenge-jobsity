@@ -23,7 +23,7 @@ _$_Episode _$_$_EpisodeFromJson(Map<String, dynamic> json) {
     image: json['image'] == null
         ? null
         : Image.fromJson(json['image'] as Map<String, dynamic>),
-    summary: json['summary'] as String?,
+    summary: parse(json['summary']).body?.text as String?,
     links: json['_links'] == null
         ? null
         : Links.fromJson(json['_links'] as Map<String, dynamic>),
